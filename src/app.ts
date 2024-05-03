@@ -1,18 +1,29 @@
-import express, { Application } from 'express';
-import morgan from 'morgan';
-
-
-
+import express, { Application } from "express";
+import 'reflect-metadata';
+import { sequelize } from '../src/config/database'; // Importa la configuración de Sequelize
+import router from './routes/Routes';
 const app: Application = express();
 
-// settings
-app.set('port', 3000 || process.env.PORT);
 
-// Middlewares
-app.use(morgan('dev'));
+app.set("port", process.env.PORT || 3000);
+app.use(router);
 app.use(express.json());
 
-// Routes
-//app.use('/api/auth', AuthController);
+
+sequelize.sync({ force: false }) 
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((error: any) => {
+    console.error('Unable to connect to the database:', error);
+  });
+
+  const server = app.listen(app.get("port"), () => {
+    console.log(`Server running on http://localhost:${app.get("port")}`);
+});
+
+server.on('error', (error) => {
+    console.error('Server error:', error);
+});
 
 export default app;
