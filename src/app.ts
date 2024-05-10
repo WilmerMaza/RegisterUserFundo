@@ -1,16 +1,17 @@
-import express, { Application } from "express";
-import 'reflect-metadata';
-import { sequelize } from '../src/config/database'; // Importa la configuración de Sequelize
-import router from './routes/Routes';
-const app: Application = express();
+import { sequelize } from "./config/database";
+import dotenv from "dotenv";
+import express from "express";
+import router from "./routes/Routes";
 
 
-app.set("port", process.env.PORT || 3000);
-app.use(router);
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 
-
-sequelize.sync({ force: false }) 
+sequelize.sync({ force: false })
   .then(() => {
     console.log('Connection has been established successfully.');
   })
@@ -18,12 +19,13 @@ sequelize.sync({ force: false })
     console.error('Unable to connect to the database:', error);
   });
 
-  const server = app.listen(app.get("port"), () => {
-    console.log(`Server running on http://localhost:${app.get("port")}`);
+app.use(router);
+
+app.listen(port, () => {
+  console.log(`Auth service running on port ${port}`);
 });
 
-server.on('error', (error) => {
-    console.error('Server error:', error);
-});
 
-export default app;
+
+
+
