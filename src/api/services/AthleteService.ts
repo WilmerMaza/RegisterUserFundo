@@ -5,3 +5,8 @@ import { Athlete } from '../../models/athlete.model'; // Assuming Athlete is a S
 export const createAthlete = (athlete: any): Promise<Athlete> => {
     return createUser(athlete);
 };
+
+export const updateAthlete = (athlete: Athlete, ID: string): Promise<number> => {
+    return Athlete.update(athlete, { where: { ID: ID } }).then(result => result[0]);
+};
+
