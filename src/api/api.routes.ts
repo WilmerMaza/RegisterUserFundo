@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { register } from "module";
+import  {addAthlete } from "api/controller/AthleteController";
 //import { login, register } from "./Controllr/authController";
 
 const authRoutes = Router();
 
-authRoutes.post('/register', register);
+authRoutes.post('/', addAthlete);
+
 //authRoutes.post('/login', login);
 
 export default authRoutes;
