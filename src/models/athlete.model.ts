@@ -3,7 +3,7 @@ import { Column, DataType, Model, Table } from "sequelize-typescript";
 @Table({
   tableName: "Athletes",
 })
-export  class Athlete extends Model {
+export class Athlete extends Model {
   @Column({
     type: DataType.UUID,
     primaryKey: true,
@@ -31,9 +31,8 @@ export  class Athlete extends Model {
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    field: "iwfCoiCode"  
+    field: "iwfCoiCode"
   })
   iwfCoiCode!: string;
-
 
 }
