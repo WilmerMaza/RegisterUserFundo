@@ -1,60 +1,34 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { DataTypes } from "sequelize";
+import { sequelize } from "../config/database";
 
-@Table({
-  tableName: "Athletes",
-})
-export class Athlete extends Model {
-  @Column({
-    type: DataType.UUID,
+export const Athlete = sequelize.define("Athlete", {
+  id: {
+    type: DataTypes.UUID,
     primaryKey: true,
-    autoIncrement: false,
-    defaultValue: DataType.UUIDV4,
+    defaultValue: DataTypes.UUIDV4,
+  },
+  Name: {
+    type: DataTypes.STRING,
     allowNull: false,
-    field: "ID"
-  })
-  ID!: string;
-
-  @Column({
-    type: DataType.STRING,
+  },
+  Numero_Sorteo: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    field: "name"
-  })
-  name!: string;
-
-  @Column({
-    type: DataType.INTEGER,
+  },
+  Birthdate: {
+    type: DataTypes.DATE,
     allowNull: false,
-    field: "Numero_Sorteo"
-  })
-  Numero_Sorteo!: number;
-
-  @Column({
-    type: DataType.DATEONLY,
+  },
+  IwfCoiCode: {
+    type: DataTypes.STRING,
     allowNull: false,
-    field: "birthdate"
-  })
-  birthdate!: Date;
-
-  @Column({
-    type: DataType.STRING,
+  },
+  Primer_Envion: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    field: "iwfCoiCode"
-  })
-  iwfCoiCode!: string;
-
-  @Column({
-    type: DataType.INTEGER,
+  },
+  Primer_Arranque: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    field: "Primer_Envion"
-  })
-  Primer_Envion!: number;
-
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-    field: "Primer_Arranque"
-  })
-  Primer_Arranque!: number;
-
- 
-}
+  },
+});
