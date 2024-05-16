@@ -12,4 +12,10 @@ class AthleteService {
   }
 }
 
+export const getAllAthletes = async (): Promise<any[]> => {
+    return Athlete.findAll();
+    };
+
+
+
 export default new AthleteService();
