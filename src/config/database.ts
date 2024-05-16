@@ -1,11 +1,7 @@
-import { Sequelize } from 'sequelize-typescript';
-import { Athlete } from '../models/athlete.model';
+import { Sequelize } from "sequelize";
+import { database, host, password, username } from "./ValidEnvironment";
 
-export const sequelize = new Sequelize({
-    dialect: 'postgres', 
-    host: 'localhost',
-    username: 'postgres',
-    password: '1234',
-    database: 'fundo',
-    models: [Athlete], 
+export const sequelize = new Sequelize(database, username, password, {
+  host,
+  dialect: "postgres",
 });

@@ -1,12 +1,15 @@
-// Assuming AthleteService is in 'src/services/AthleteService.ts'
-import { createUser } from '../../metodos';
-import { Athlete } from '../../models/athlete.model'; // Assuming Athlete is a Sequelize model
+import { createUser } from "../../metodos";
+import { Athlete } from "../../models/athlete.model";
 
-export const createAthlete = (athlete: any): Promise<Athlete> => {
-    return createUser(athlete);
-};
+class AthleteService {
+  async createAthlete(athlete: any): Promise<any> {
+    return await createUser(athlete);
+  }
 
-export const updateAthlete = (athlete: Athlete, ID: string): Promise<number> => {
-    return Athlete.update(athlete, { where: { ID: ID } }).then(result => result[0]);
-};
+  async updateAthlete(athlete: any, ID: string): Promise<number> {
+    const result = await Athlete.update(athlete, { where: { ID: ID } });
+    return result[0];
+  }
+}
 
+export default new AthleteService();
