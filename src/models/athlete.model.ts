@@ -22,6 +22,13 @@ export class Athlete extends Model {
   name!: string;
 
   @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+    field: "Numero_Sorteo"
+  })
+  Numero_Sorteo!: number;
+
+  @Column({
     type: DataType.DATEONLY,
     allowNull: false,
     field: "birthdate"
@@ -35,4 +42,19 @@ export class Athlete extends Model {
   })
   iwfCoiCode!: string;
 
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+    field: "Primer_Envion"
+  })
+  Primer_Envion!: number;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+    field: "Primer_Arranque"
+  })
+  Primer_Arranque!: number;
+
+ 
 }
