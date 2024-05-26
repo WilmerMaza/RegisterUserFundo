@@ -7,7 +7,7 @@ class AthleteService {
   }
 
   async updateAthlete(athlete: any, ID: string): Promise<number> {
-    const result = await Athlete.update(athlete, { where: { ID: ID } });
+    const result = await Athlete.update(athlete, { where: { id: ID } });
     return result[0];
   }
 }

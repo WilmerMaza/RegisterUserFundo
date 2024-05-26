@@ -36,9 +36,9 @@ export const updateAthlete = async (request: Request, response: Response): Promi
             });
         }
 
-    } catch {
+    } catch (error) {
         response.status(500).json({
-            message: "Error al actualizar el usuario",
+            message: `Error al actualizar el usuario ${error}`
         });
     }
 };
