@@ -12,6 +12,6 @@ RUN npm cache clean --force && npm install
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 3003
 
 CMD ["pm2-runtime", "start", "npm", "--", "run", "start"]
