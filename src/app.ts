@@ -1,12 +1,12 @@
 import cors from "cors";
 import express from "express";
 import { PORT } from "./config/ValidEnvironment";
-import { sequelize } from "./config/database";
+import sequelize from "./config/database";
 import router from "./routes/Routes";
 
 const app = express();
 
-const allowedOrigins = ["http://tu-api-gateway.com","*"];
+const allowedOrigins = ["http://tu-api-gateway.com", "*"];
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
