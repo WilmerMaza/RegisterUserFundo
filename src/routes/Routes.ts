@@ -3,8 +3,8 @@ import { addAthlete, getAllAthletesController, updateAthlete } from '../api/cont
 
 const router = Router();
 
-router.post('/Users', addAthlete);
-router.put('/users/:ID', updateAthlete);
-router.get('/athletes', getAllAthletesController);
+router.post('/AthletesRegister', addAthlete);
+router.put('/AthleteUpdate/:ID', updateAthlete);
+router.get('/AthletesAll', getAllAthletesController);
 
 export default router;

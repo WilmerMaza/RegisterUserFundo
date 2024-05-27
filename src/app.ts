@@ -6,13 +6,13 @@ import router from "./routes/Routes";
 
 const app = express();
 
-const allowedOrigins = ["http://tu-api-gateway.com", "*"];
+const allowedOrigins = ["http://tu-api-gateway.com","*"];
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (allowedOrigins.includes(origin!)) {
       callback(null, true);
-    } else if (origin === "*") {
+    } else if (allowedOrigins.includes("*")) {
       // Permitir todas las solicitudes si el origen es '*'
       callback(null, true);
     } else {
