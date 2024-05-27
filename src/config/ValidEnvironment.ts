@@ -15,4 +15,5 @@ export const password = getEnvironmentVariable("password");
 export const database = getEnvironmentVariable("database");
 export const dialect = getEnvironmentVariable("dialect");
 export const host = getEnvironmentVariable("host");
+export const AMBIENTE_API = getEnvironmentVariable("AMBIENTE_API");
 
