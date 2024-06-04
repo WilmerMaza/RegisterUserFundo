@@ -22,7 +22,7 @@ const corsOptions: cors.CorsOptions = {
 };
 
 app.use(cors(corsOptions));
-const port = PORT || 3000;
+const port = PORT || 3003;
 
 app.use(express.json());
 

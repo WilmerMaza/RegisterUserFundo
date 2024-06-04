@@ -11,6 +11,10 @@ export const Athlete = sequelize.define("Athlete", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  LastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   Numero_Sorteo: {
     type: DataTypes.INTEGER,
     allowNull: false,
