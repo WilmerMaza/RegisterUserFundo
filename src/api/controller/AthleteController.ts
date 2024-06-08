@@ -2,15 +2,22 @@ import { Request, Response } from "express";
 import AthleteService, { getAllAthletes } from "../services/AthleteService";
 
 export const addAthlete = async (request: Request, response: Response): Promise<void> => {
+    
     const athleteRequest: any = request.body;
+
+
 
     try {
         const savedAthlete = await AthleteService.createAthlete(athleteRequest);
+        console.log("Atleta guardado exitosamente:", savedAthlete);
         response.status(201).json({
             message: "Usuario registrado exitosamente",
             athlete: savedAthlete,
-        });
-    } catch (err: unknown) {
+            
+        } );
+    }
+    catch (err: unknown) {
+        console.error("Error al registrar el usuario:", err);
         response.status(500).json({
             message: "Error al registrar el usuario",
         });

@@ -1,9 +1,11 @@
 import { createUser } from "../../metodos";
 import { Athlete } from "../../models/athlete.model";
+import { v4 as uuidv4 } from 'uuid';
 
 class AthleteService {
   async createAthlete(athlete: any): Promise<any> {
-    return await createUser(athlete);
+    const jsonnew= {...athlete,id: uuidv4()}
+    return await createUser(jsonnew);
   }
 
   async updateAthlete(athlete: any, ID: string): Promise<number> {
