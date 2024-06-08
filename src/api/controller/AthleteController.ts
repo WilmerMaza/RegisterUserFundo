@@ -10,7 +10,7 @@ export const addAthlete = async (request: Request, response: Response): Promise<
 
     try {
         const savedAthlete = await AthleteService.createAthlete(athleteRequest);
-        console.log("Atleta guardado exitosamente:", savedAthlete);
+
         response.status(201).json({
             message: "Usuario registrado exitosamente",
             athlete: savedAthlete,
