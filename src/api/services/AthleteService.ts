@@ -6,8 +6,8 @@ import { Athlete } from "../../models/athlete.model";
 
 class AthleteService {
   async createAthlete(AthleteRequest: User_Athlete): Promise<User_Athlete> {
-    const New_Athlete= {...AthleteRequest,id: uuidv4()}
-    return await createUser(New_Athlete);
+    const newAthlete= {...AthleteRequest,id: uuidv4()}
+    return await createUser(newAthlete);
   }
 
   async updateAthlete(AthleteRequest: User_Athlete, ID: string): Promise<number> {
