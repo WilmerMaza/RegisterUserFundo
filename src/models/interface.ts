@@ -1,6 +1,6 @@
 // src/interfaces/athlete.interface.ts
 
-export interface Athlete {
+export interface User_Athlete {
     Name: string;
     LastName: string;
     Numero_Sorteo: number;

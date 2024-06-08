@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import AthleteService, { getAllAthletes } from "../services/AthleteService";
-import { Athlete } from "../../models/interface";
+import { User_Athlete } from "../../models/interface";
 
 export const addAthlete = async (request: Request, response: Response): Promise<void> => {
     
-    const athleteRequest: Athlete = request.body;
+    const athleteRequest: User_Athlete = request.body;
 
 
 
