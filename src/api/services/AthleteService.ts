@@ -6,12 +6,12 @@ import { Athlete } from "../../models/athlete.model";
 
 class AthleteService {
   async createAthlete(AthleteRequest: User_Athlete): Promise<User_Athlete> {
-    const jsonnew= {...AthleteRequest,id: uuidv4()}
-    return await createUser(jsonnew);
+    const New_Athlete= {...AthleteRequest,id: uuidv4()}
+    return await createUser(New_Athlete);
   }
 
-  async updateAthlete(athlete: any, ID: string): Promise<number> {
-    const result = await Athlete.update(athlete, { where: { id: ID } });
+  async updateAthlete(AthleteRequest: User_Athlete, ID: string): Promise<number> {
+    const result = await Athlete.update(AthleteRequest, { where: { id: ID } });
     return result[0];
   }
 }
