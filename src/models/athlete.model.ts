@@ -2,10 +2,15 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/database";
 
 export const Athlete = sequelize.define("Athlete", {
-  id: {
+
+  Id: {
     type: DataTypes.UUID,
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4,
+  },
+  Id_Partida: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   Name: {
     type: DataTypes.STRING,
@@ -31,7 +36,7 @@ export const Athlete = sequelize.define("Athlete", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  Primer_Arranque: {
+Primer_Arranque: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
