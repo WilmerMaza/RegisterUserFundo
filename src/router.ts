@@ -1,5 +1,5 @@
-import authRoutes from 'api/api.routes';
 import { Router } from 'express';
+import authRoutes from './api/api.routes';
 
 
 
