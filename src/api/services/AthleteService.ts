@@ -6,10 +6,11 @@ import { Athlete } from "../../models/athlete.model";
 
 class AthleteService {
 
-    async findAthleteByNumeroSorteo(numeroSorteo: number): Promise<User_Athlete | null> {
-        const athlete = await Athlete.findOne({ where: { Numero_Sorteo: numeroSorteo } });
-        return athlete ? (athlete.toJSON() as User_Athlete) : null;
-    }
+  async findAthleteByNumeroSorteoAndPartida(numeroSorteo: number, idPartida: string): Promise<User_Athlete | null> {
+    const athlete = await Athlete.findOne({ where: { Numero_Sorteo: numeroSorteo, Id_Partida: idPartida } });
+    return athlete ? (athlete.toJSON() as User_Athlete) : null;
+
+}
 
     async createAthlete(athleteRequest: User_Athlete): Promise<User_Athlete> {
         const newAthlete = await Athlete.create({
@@ -35,6 +36,10 @@ export const getAthletesByIdPartida = async (Id_Partida: string): Promise<any[]>
       throw err;
   }
 };
+
+
+
+
 
 
 

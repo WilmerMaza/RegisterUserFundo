@@ -6,16 +6,18 @@ export const addAthlete = async (request: Request, response: Response): Promise<
     const athleteRequest: User_Athlete = request.body;
 
     try {
-        // Verificar si el deportista ya existe por Numero_Sorteo
-        const existingAthlete = await AthleteService.findAthleteByNumeroSorteo(athleteRequest.Numero_Sorteo);
+
+        const existingAthlete = await AthleteService.findAthleteByNumeroSorteoAndPartida(
+            Number(athleteRequest.Numero_Sorteo),
+            athleteRequest.Id_Partida
+        );
         if (existingAthlete) {
             response.status(400).json({
-                message: "El deportista ya está registrado",
+                message: "El deportista ya está registrado en esta partida",
             });
             return;
         }
 
-        // Crear el nuevo deportista
         const savedAthlete = await AthleteService.createAthlete(athleteRequest);
 
         response.status(201).json({
@@ -29,6 +31,7 @@ export const addAthlete = async (request: Request, response: Response): Promise<
         });
     }
 };
+
 
 export const updateAthlete = async (request: Request, response: Response): Promise<void> => {
     const { ID: ID } = request.params;
@@ -61,7 +64,7 @@ export const getAthletesByIdPartidaController = async (request: Request, respons
 
     try {
         const athletes = await getAthletesByIdPartida(idPartida);
-        
+
         response.status(200).json(athletes);
     } catch (err: unknown) {
         console.error('Error al obtener los atletas:', err);

@@ -27,7 +27,7 @@ const port = PORT || 3003;
 app.use(express.json());
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("Connection has been established successfully.");
   })
