@@ -38,5 +38,5 @@ sequelize
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`Auth service running on port ${port}`);
+  console.log(`Register service running on port ${port}`);
 });
